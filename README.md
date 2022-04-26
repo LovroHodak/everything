@@ -17,6 +17,7 @@ content: [
 so styles can be applied to src and public
 
 // TAILWIND.js
+-that tailwind components can accept classes, refs, props
 
 // SETTINGS.json
--to get suggestions
+-to get suggestions of tailwind classes

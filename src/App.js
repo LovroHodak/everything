@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { tw } from "./tailwind";
 //components
 import First from "./components/First";
@@ -7,14 +7,22 @@ import Second from "./components/Second";
 import Third from "./components/Third";
 
 function App() {
+  const [changeBgColorFirst, setChangeBgColorFirst] = useState(false)
   const firstRef = useRef();
+
 
   useEffect(() => {
     const onScroll = (event) => {
       const height = event.target.scrollTop;
 
+      if (height > firstRef.current.offsetTop){
+        setChangeBgColorFirst(true)
+      } else {
+        setChangeBgColorFirst(false)
+      }
+      /* console.log(changeBgColorFirst)
       console.log(firstRef.current.offsetTop);
-      console.log(height);
+      console.log(height); */
     };
 
     document.getElementById("root").addEventListener("scroll", onScroll);
@@ -29,7 +37,7 @@ function App() {
         <h1 className="text-3xl font-bold underline">Lovre</h1>
         <h1 className="text-tinny">Lovre</h1>
       </TwoTitles>
-      <First ref={firstRef} />
+      <First ref={firstRef} changeBgColorFirst={changeBgColorFirst} />
       <Second />
       <Third />
       <Fourth />

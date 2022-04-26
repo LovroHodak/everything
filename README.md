@@ -21,3 +21,10 @@ so styles can be applied to src and public
 
 // SETTINGS.json
 -to get suggestions of tailwind classes
+
+2. INDEX.html
+-added overflow-y to body and #root
+
+APP.js
+-useEffect to listen to ref sent to First
+-if useState changes in App.js change color in First.js

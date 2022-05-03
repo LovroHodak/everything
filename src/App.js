@@ -7,18 +7,18 @@ import Second from "./components/Second";
 import Third from "./components/Third";
 
 function App() {
-  const [changeBgColorFirst, setChangeBgColorFirst] = useState(false)
+  // First
+  const [changeBgColorFirst, setChangeBgColorFirst] = useState(false);
   const firstRef = useRef();
-
 
   useEffect(() => {
     const onScroll = (event) => {
       const height = event.target.scrollTop;
 
-      if (height > firstRef.current.offsetTop){
-        setChangeBgColorFirst(true)
+      if (height > firstRef.current.offsetTop) {
+        setChangeBgColorFirst(true);
       } else {
-        setChangeBgColorFirst(false)
+        setChangeBgColorFirst(false);
       }
       /* console.log(changeBgColorFirst)
       console.log(firstRef.current.offsetTop);
@@ -31,6 +31,15 @@ function App() {
       document.getElementById("root").removeEventListener("scroll", onScroll);
   });
 
+  // Second
+  const names = [
+    { name: "Lovro" },
+    { name: "Ivica" },
+    { name: "Luka" },
+    { name: "Marjana" },
+  ];
+  const [members, setMembers] = useState(names);
+
   return (
     <AppCont>
       <TwoTitles>
@@ -38,7 +47,7 @@ function App() {
         <h1 className="text-tinny">Lovre</h1>
       </TwoTitles>
       <First ref={firstRef} changeBgColorFirst={changeBgColorFirst} />
-      <Second />
+      <Second members={members} />
       <Third />
       <Fourth />
     </AppCont>
